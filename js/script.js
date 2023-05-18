@@ -1,24 +1,3 @@
-// взаимодействие с пользователем alert prompt
-const numberOfFilms = +prompt('Сколько фильмов вы смотрели?', '');
-
-const personalMovieDB = {
-	count: numberOfFilms,
-	movies: {},
-	actors: {},
-	genres: [],
-	privat: false,
-};
-
-const lastWachedFilm1 = prompt('Один из последних просмотренных фильмов', '');
-const lastWachedFilmRate1 = prompt('На сколько оцениваете его?', '');
-const lastWachedFilm2 = prompt('Один из последних просмотренных фильмов', '');
-const lastWachedFilmRate2 = prompt('На сколько оцениваете его?', '');
-
-personalMovieDB.movies[lastWachedFilm1] = lastWachedFilmRate1;
-personalMovieDB.movies[lastWachedFilm2] = lastWachedFilmRate2;
-
-console.log(personalMovieDB);
-
 // циклы
 let num = 20;
 for (let i = 1; i < 8; i++) {
@@ -28,6 +7,7 @@ for (let i = 1; i < 8; i++) {
 	}
 }
 console.log(i);
+
 
 
 // вложенные циклы, пирамидка из *
@@ -43,6 +23,7 @@ for (let i = 1; i < length; i++) {
 	result += '\n';
 }
 console.log(result);
+
 
 
 // как выйти из внутреннего цикла, не закончив его 
@@ -86,90 +67,23 @@ for (let i = 0; i <= lines; i++) { // начало основного цикла
 console.log(result);
 
 
+function calculateVolumeAndArea(rebro) {
+if (rebro < 0 || typeof rebro !== 'number' || !Number.isInteger(rebro)) {
+	return 'При вычислении произошла ошибка';
+} return `Объем куба: ${rebro*rebro*rebro}, площадь всей поверхности: ${rebro*rebro*6}`;
+}
+calculateVolumeAndArea(5);
 
-
-// решение задачи с фильмами циклом
-const numberOfFilms = +prompt('Сколько фильмов вы смотрели?', '');
-
-const personalMovieDB = {
-	count: numberOfFilms,
-	movies: {},
-	actors: {},
-	genres: [],
-	privat: false,
-};
-
-for (let i = 0; i < 2; i++) {
-	const lastWachedFilm = prompt('Один из последних просмотренных фильмов', '');
-	const lastWachedFilmRate = prompt('На сколько оцениваете его?', '');
-
-	if (lastWachedFilm !== '' && lastWachedFilmRate !== '' && lastWachedFilm.length > 50 && lastWachedFilm !== null && lastWachedFilmRate !== null) {
-		personalMovieDB.movies[lastWachedFilm] = lastWachedFilmRate;
-		console.log ('done');
-	} else {
-		console.log ('error');
-		i--;
+function getCoupeNumber(seat) {
+	if (seat === 0 || seat > 36) {
+	return  'Таких мест в вагоне не существует';
 	}
-};
 
-if (personalMovieDB.count < 10) {
-	console.log ('Мало фильмов');
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-	console.log ('Вы классный зритель');
-} else if (personalMovieDB.count >= 30) {
-	console.log ('Вы киноман');
-} else {
-	console.log ('error');
+	if (seat < 0 || !Number.isInteger(seat) || typeof seat !== 'number') {
+	return 'Ошибка. Проверьте правильность введенного номера места';
+	}
+	
+	return Math.ceil(seat / 4);
 }
 
-console.log(personalMovieDB);
-
-
-
-
-
-// решение задачи с фильмами функционально
-let numberOfFilms;
-
-function start() {
-	numberOfFilms = +prompt('Сколько фильмов вы смотрели?', '');
-
-	while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-		numberOfFilms = +prompt('Сколько фильмов вы смотрели?', '');
-	}
-}
-
-start();
-
-const personalMovieDB = {
-	count: numberOfFilms,
-	movies: {},
-	actors: {},
-	genres: [],
-	privat: false,
-};
-
-for (let i = 0; i < 2; i++) {
-	const lastWachedFilm = prompt('Один из последних просмотренных фильмов', '');
-	const lastWachedFilmRate = prompt('На сколько оцениваете его?', '');
-
-	if (lastWachedFilm !== '' && lastWachedFilmRate !== '' && lastWachedFilm.length > 50 && lastWachedFilm !== null && lastWachedFilmRate !== null) {
-		personalMovieDB.movies[lastWachedFilm] = lastWachedFilmRate;
-		console.log ('done');
-	} else {
-		console.log ('error');
-		i--;
-	}
-};
-
-if (personalMovieDB.count < 10) {
-	console.log ('Мало фильмов');
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-	console.log ('Вы классный зритель');
-} else if (personalMovieDB.count >= 30) {
-	console.log ('Вы киноман');
-} else {
-	console.log ('error');
-}
-
-console.log(personalMovieDB);
+getCoupeNumber(2);
